@@ -84,51 +84,75 @@ routemamba.register_routes_footers([
      },
 ]);
 
-routemamba.render();
-
-var home_btn = document.getElementById("home");
-var about_btn = document.getElementById("about");
-var privacy_btn = document.getElementById("privacy");
-var tabs_example_btn = document.getElementById("tabs-example");
-var back = document.getElementById("back");
-var next = document.getElementById("next");
-
-back.addEventListener('click', ()=>{
-routemamba.pop_route();
-});
-
-next.addEventListener('click', ()=>{
-routemamba.push_route();
-});
 
 
-home_btn.addEventListener('click', ()=>{
-routemamba.navigate("/", {}, {
-header_load: true,
-footer_load: true
-});
-});
 
-about_btn.addEventListener('click', ()=>{
-routemamba.navigate("about.php", {
-id: 43345,
-name: "rezwan"
-}, {
-header_load: true,
-footer_load: true
-});
-});
 
-privacy_btn.addEventListener('click', ()=>{
-routemamba.navigate("privacy.php");
-});
 
-tabs_example_btn.addEventListener('click', ()=>{
-routemamba.navigate("tabs-example.php", {}, {
-meta_loader: true,
-method: "GET",
-http_url_change: true,
-header_load: true,
-footer_load: true
-});
-});
+// ✅ Check if element exists before calling addEventListener()
+// if (home_btn) {
+//   // Not called
+//   home_btn.addEventListener('click', () => {
+//     alert('You clicked the button');
+//   });
+// }
+// home_btn.addEventListener('click', ()=>{
+//     routemamba.pop_route();
+// });
+
+// about_btn.addEventListener('click', ()=>{
+//     routemamba.push_route();
+// });
+
+// deals_btn.addEventListener('click', ()=>{
+//     routemamba.push_route();
+// });
+
+// reservation_btn.addEventListener('click', ()=>{
+//     routemamba.push_route();
+// });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var home_btn = document.getElementById('home');
+    home_btn.addEventListener('click', function() {
+      routemamba.navigate("home.html", {}, {
+        header_load: true,
+        footer_load: true
+      });
+    });
+  });
+    
+  document.addEventListener('DOMContentLoaded', function() {
+    var deals_btn = document.getElementById('deals');
+    deals_btn.addEventListener('click', function() {
+      routemamba.navigate("deals.html", {}, {
+        header_load: true,
+        footer_load: true
+      });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var about_btn = document.getElementById('about');
+    about_btn.addEventListener('click', function() {
+      routemamba.navigate("about.html", {}, {
+        header_load: true,
+        footer_load: true
+      });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var reservation_btn = document.getElementById('reservation');
+    reservation_btn.addEventListener('click', function() {
+      routemamba.navigate("reservation.html", {}, {
+        header_load: true,
+        footer_load: true
+      });
+    });
+  });
+
+
+  routemamba.render();
+
+
